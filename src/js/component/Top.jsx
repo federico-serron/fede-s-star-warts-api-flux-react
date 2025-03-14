@@ -2,7 +2,7 @@ import React from "react";
 
 const Top = () => {
     return (
-        <div className="justify-content-evenly row my-3">
+        <div className="container-fluid justify-content-evenly row my-3">
             <div className="col-4">
                 <a className="navbar-brand" href="#">Star Wars Databank</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
