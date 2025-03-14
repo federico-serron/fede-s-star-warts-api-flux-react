@@ -7,6 +7,7 @@ import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
+import Top from "./component/Top.jsx";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 
@@ -20,6 +21,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
+					<Top/>
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
