@@ -23,7 +23,7 @@ export const Vehicles = ({classSlide=false}) => {
 					{store && store.vehicles?.map((vehicle) => {
 						return (
 							<React.Fragment key={vehicle.uid}>
-								<Card classSlide={classSlide} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} type={"vehicles"}/>
+								<Card classSlide={classSlide} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} type={"vehicles"} image={store.images.vehicles}/>
 							</React.Fragment>
 						)
 					})}

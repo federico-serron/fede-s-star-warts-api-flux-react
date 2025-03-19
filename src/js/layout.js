@@ -28,7 +28,6 @@ const Layout = () => {
 					<Top/>
 					<Navbar />
 					<Routes>
-
 						<Route path="/" element={<Home />} />
 						<Route path="/people/" element={<People />} />
 						<Route path="/vehicles/" element={<Vehicles />} />
@@ -37,11 +36,6 @@ const Layout = () => {
 						<Route path="/people/:id" element={<DescriptionPage />} />
 						<Route path="/vehicles/:id" element={<DescriptionPage />} />
 						<Route path="/test/" element={<DescriptionPage />} />
-
-
-
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

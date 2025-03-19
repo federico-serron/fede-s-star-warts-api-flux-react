@@ -82,3 +82,9 @@ small{
 small:hover{
     cursor: pointer;
 }
+
+.table {
+    color: #f1f1f1;
+}
+
+

@@ -25,7 +25,7 @@ export const People = ({classSlide=false}) => {
 					{store && store.people?.map((person) => {
 						return (
 							<React.Fragment key={person.uid}>
-								<Card classSlide={classSlide} uid={person.uid} name={person.name} url={person.url} type={"people"}/>
+								<Card classSlide={classSlide} uid={person.uid} name={person.name} url={person.url} type={"people"} image={store.images.people}/>
 							</React.Fragment>
 						)
 					})}

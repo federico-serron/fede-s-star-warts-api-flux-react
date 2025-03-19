@@ -1,48 +1,22 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+			favorites: [],
 			people: [],
 			planets: [],
 			vehicles: [],
 			currentItem: {},
-
-
+			images: {
+				planets: "https://assets.science.nasa.gov/dynamicimage/assets/science/astro/exo-explore/internal_resources/121/Star_Wars_Kepler-22b_Kamino.png?w=1280&h=720&fit=clip&crop=faces%2Cfocalpoint",
+				people: "https://conceptartworld.com/wp-content/uploads/2016/03/Star_Wars_The_Force_Awakens_Concept_Art_ILM_001.jpg",
+				vehicles: "https://img.redbull.com/images/q_auto,f_auto/redbullcom/2015/12/17/1331765975410_5/star-wars-landspeeders-in-the-dakar-rally"
+			}
 		},
+		
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			},
 
 			getPeople: async () => {
@@ -56,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json();
 					setStore({ ...store, people: data.results, pagination_people: [data.total_pages, data.total_records, data.next, data.previous] })
 					console.log(store)
-					
+
 
 
 				} catch (error) {
@@ -92,7 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						throw new Error("Error getting all the data for this item from API");
 					}
 					const data = await response.json();
-					setStore({...store, currentItem: data.result});
+					setStore({ ...store, currentItem: data.result });
 					return true;
 
 				} catch (error) {
@@ -102,10 +76,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			cleanUpCurrentItem: ()=>{
+			cleanUpCurrentItem: () => {
 				const store = getStore();
 
-				setStore({...store, currentItem: {}})
+				setStore({ ...store, currentItem: {} })
 			},
 
 			getPlanets: async () => {

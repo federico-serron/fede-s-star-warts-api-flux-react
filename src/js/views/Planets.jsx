@@ -23,7 +23,7 @@ export const Planets = ({classSlide=false}) => {
 					{store && store.planets?.map((planet) => {
 						return (
 							<React.Fragment key={planet.uid}>
-								<Card classSlide={classSlide} uid={planet.uid} name={planet.name} url={planet.url} type={"planets"}/>
+								<Card classSlide={classSlide} uid={planet.uid} name={planet.name} url={planet.url} type={"planets"} image={store.images.planets}/>
 							</React.Fragment>
 						)
 					})}
