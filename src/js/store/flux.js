@@ -115,6 +115,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			},
+
+			addFavorite: (name, uid, type) => {
+				const store = getStore();
+				try {
+					const url = `/${type}/${uid}`
+					const nameFavorite = name;
+
+					setStore({...store, favorites: [...store.favorites, {uid: uid, url: url,  name: nameFavorite}] })
+					return true
+
+				} catch (error) {
+					console.error("It could't be added to favorites, please try again later, ", error)
+					return false;
+				}
+			}
 		}
 	};
 };
