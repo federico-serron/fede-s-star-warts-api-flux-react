@@ -57,21 +57,21 @@ body {
 }
 
 ::-webkit-scrollbar {
-    width: 10px; /* Ancho de la barra de desplazamiento */
+    width: 10px;
     height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Color de fondo de la pista */
+    background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; /* Color del pulgar (la parte móvil) */
-    border-radius: 5px; /* Bordes redondeados */
+    background: #888; 
+    border-radius: 5px; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color al pasar el ratón */
+    background: #555; 
 }
 
 .table {
@@ -84,5 +84,15 @@ body {
     justify-content: center;
     align-items: center;
     height: 20vh;
+  }
+
+  @media only screen and (max-width: 550px) {
+    #logo {
+      display: none;
+    }
+
+    #carouselFade {
+        display: none;
+      }
   }
   

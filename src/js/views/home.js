@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import "../../styles/home.css";
 
-import { Context } from "../store/appContext";
 
 import Banner from "../component/Banner.jsx"
 import { People } from "./People.jsx";
@@ -9,8 +8,6 @@ import { Planets } from "./Planets.jsx";
 import { Vehicles } from "./Vehicles.jsx";
 
 export const Home = () => {
-
-	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="text-center my-3">

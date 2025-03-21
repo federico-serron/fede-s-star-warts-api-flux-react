@@ -8,7 +8,7 @@ const Top = () => {
                 <a className="navbar-brand" href="#">Star Wars Databank</a>
 
             </div>
-            <div className="col-sm-12 col-md-4  text-center">
+            <div id="logo" className="col-sm-12 col-md-4  text-center">
                 <img src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254" className=" w-25 mx-auto" alt="" />
             </div>
             <div className="col-sm-12 col-md-4 d-flex justify-content-end col-4">

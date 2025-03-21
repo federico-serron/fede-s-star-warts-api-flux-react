@@ -5,7 +5,6 @@ import { Context } from "../store/appContext";
 
 import Card from "../component/Card.jsx";
 import { Spinner } from "../component/Spinner.jsx";
-import { Pagination } from "../component/Pagination.jsx";
 
 export const People = ({ classSlide = false }) => {
 
@@ -30,9 +29,12 @@ export const People = ({ classSlide = false }) => {
 				<div className={classSlide ? "d-flex overflow-auto" : "row"}>
 					{store && store.people?.map((person) => {
 						return (
-							<React.Fragment key={person.uid}>
-								<Card classSlide={classSlide} uid={person.uid} name={person.name} url={person.url} type={"people"} image={store.images.people} />
-							</React.Fragment>
+							<div key={person.uid} className="col-12 col-sm-6 col-md-4 col-lg-3">
+
+								<React.Fragment>
+									<Card classSlide={classSlide} uid={person.uid} name={person.name} url={person.url} type={"people"} image={store.images.people} />
+								</React.Fragment>
+							</div>
 						)
 					})}
 				</div>

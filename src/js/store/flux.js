@@ -39,48 +39,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			getPagePeople: async (url) => {
-				const store = getStore();
-				try {
-					const response = await fetch(url, { method: 'GET' })
-					if (!response.ok) {
-						console.log("Error getting the people", response.statusText)
-						throw new Error("Error getting all the people from API");
-					}
-					const data = await response.json();
-					setStore({ ...store, people: data.results, pagination_people: [data.total_pages, data.total_records, data.next, data.previous] })
-
-				} catch (error) {
-					console.error(error)
-					return error
-				}
-
-			},
-
-			getCurrentItem: async (type, id) => {
-				const store = getStore();
-				try {
-					const response = await fetch(`https://www.swapi.tech/api/${type}/${id}`, { method: 'GET' })
-					if (!response.ok) {
-						console.log("Error getting the item", response.statusText)
-						throw new Error("Error getting all the data for this item from API");
-					}
-					const data = await response.json();
-					setStore({ ...store, currentItem: data.result });
-					return true;
-
-				} catch (error) {
-					console.error(error)
-					return false;
-				}
-
-			},
-
-			cleanUpCurrentItem: () => {
-				const store = getStore();
-
-				setStore({ ...store, currentItem: {} })
-			},
 
 			getPlanets: async () => {
 				const store = getStore();
@@ -114,6 +72,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error)
 				}
 
+			},
+
+			getCurrentItem: async (type, id) => {
+				const store = getStore();
+				try {
+					const response = await fetch(`https://www.swapi.tech/api/${type}/${id}`, { method: 'GET' })
+					if (!response.ok) {
+						console.log("Error getting the item", response.statusText)
+						throw new Error("Error getting all the data for this item from API");
+					}
+					const data = await response.json();
+					setStore({ ...store, currentItem: data.result });
+					return true;
+
+				} catch (error) {
+					console.error(error)
+					return false;
+				}
+
+			},
+
+			cleanUpCurrentItem: () => {
+				const store = getStore();
+
+				setStore({ ...store, currentItem: {} })
 			},
 
 			setFavorite: (name, uid, type) => {

@@ -30,9 +30,12 @@ export const Vehicles = ({ classSlide = false }) => {
 				<div className={classSlide ? "d-flex overflow-auto " : "row"}>
 					{store && store.vehicles?.map((vehicle) => {
 						return (
-							<React.Fragment key={vehicle.uid}>
-								<Card classSlide={classSlide} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} type={"vehicles"} image={store.images.vehicles} />
-							</React.Fragment>
+							<div key={vehicle.uid} className="col-12 col-sm-6 col-md-4 col-lg-3">
+
+								<React.Fragment>
+									<Card classSlide={classSlide} uid={vehicle.uid} name={vehicle.name} url={vehicle.url} type={"vehicles"} image={store.images.vehicles} />
+								</React.Fragment>
+							</div>
 						)
 					})}
 				</div>

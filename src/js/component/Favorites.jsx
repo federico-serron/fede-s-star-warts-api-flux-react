@@ -21,9 +21,9 @@ export const Favorites = () => {
 
             {store.favorites.length > 0 ? (
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    {store && store.favorites?.map((item) => {
+                    {store && store.favorites?.map((item, index) => {
                         return (
-                            <li key={item.uid}><Link className="dropdown-item" to={item.url}>{item.name}</Link></li>
+                            <li key={index}><Link className="dropdown-item" to={item.url}>{item.name}</Link></li>
                         )
                     })}
                 </ul>

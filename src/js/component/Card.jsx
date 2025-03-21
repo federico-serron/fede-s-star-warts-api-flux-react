@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 const Card = ({ uid, name, classSlide, url, type, image }) => {
@@ -9,7 +8,7 @@ const Card = ({ uid, name, classSlide, url, type, image }) => {
 
     return (
 
-        <div className={classSlide ? "col-md-3 mt-3 mx-2 " : "col-md-3 mt-3 "} >
+        <div className={classSlide ? "mt-3 mx-2 " : "mt-3 "} >
             <div className="card custom-card">
                 <img src={image} className="card-img-top" alt="Product Image" />
                 <div className="card-body">
