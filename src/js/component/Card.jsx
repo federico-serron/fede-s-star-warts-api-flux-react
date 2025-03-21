@@ -18,7 +18,7 @@ const Card = ({ uid, name, classSlide, url, type, image }) => {
                 </div>
                 <div className="card-footer d-flex justify-content-between bg-light">
                     <Link className="btn btn-primary btn-sm" to={`/${type}/${uid}/`} >See more</Link>
-                    <button className="btn btn-outline-secondary btn-sm" onClick={() => { actions.addFavorite(name, uid, type) }}><i className={store.favorites.some(item => item.name === name)
+                    <button className="btn btn-outline-secondary btn-sm" onClick={() => { actions.setFavorite(name, uid, type) }}><i className={store.favorites.some(item => item.name === name)
                         ? "fa-solid fa-heart heartbeat text-danger"
                         : "fa-solid fa-heart"}></i></button>
                 </div>

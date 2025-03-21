@@ -19,13 +19,20 @@ export const Favorites = () => {
                 Favorites <span className="badge bg-danger rounded-pill">{favoritesQty}</span>
             </a>
 
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                {store && store.favorites?.map((item) => {
-                    return (
-                        <li key={item.uid}><Link className="dropdown-item" to={item.url}>{item.name}</Link></li>
-                    )
-                })}
-            </ul>
+            {store.favorites.length > 0 ? (
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    {store && store.favorites?.map((item) => {
+                        return (
+                            <li key={item.uid}><Link className="dropdown-item" to={item.url}>{item.name}</Link></li>
+                        )
+                    })}
+                </ul>
+            ) : (
+                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li className="dropdown-item">Favorites empty</li>
+                </ul>
+            )}
+
         </div>
     )
 }

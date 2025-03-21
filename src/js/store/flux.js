@@ -12,7 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				vehicles: "https://img.redbull.com/images/q_auto,f_auto/redbullcom/2015/12/17/1331765975410_5/star-wars-landspeeders-in-the-dakar-rally"
 			}
 		},
-		
+
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
@@ -116,20 +116,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			addFavorite: (name, uid, type) => {
+			setFavorite: (name, uid, type) => {
 				const store = getStore();
-				try {
-					const url = `/${type}/${uid}`
-					const nameFavorite = name;
 
-					setStore({...store, favorites: [...store.favorites, {uid: uid, url: url,  name: nameFavorite}] })
+				const indexFav = store.favorites.findIndex(favorite => favorite.name === name && favorite.uid === uid);
+
+				if (indexFav !== -1) {
+					const updatedFavorites = [...store.favorites];
+					updatedFavorites.splice(indexFav, 1);
+					setStore({ ...store, favorites: updatedFavorites });
 					return true
+				} else {
+					try {
 
-				} catch (error) {
-					console.error("It could't be added to favorites, please try again later, ", error)
-					return false;
+						const url = `/${type}/${uid}`;
+
+						setStore({ ...store, favorites: [...store.favorites, { uid: uid, url: url, name: name }] })
+						return true
+
+					} catch (error) {
+						console.error("It could't be added to favorites, please try again later, ", error)
+						return false;
+					}
 				}
-			}
+
+
+			},
 		}
 	};
 };
