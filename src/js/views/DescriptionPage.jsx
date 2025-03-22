@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 export const DescriptionPage = () => {
     const { store, actions } = useContext(Context);
-    const { type, id } = useParams(); // Aquí obtenemos tanto el type como el id
+    const { type, id } = useParams();
 
     const [isLoading, setIsLoading] = useState(false);
 
