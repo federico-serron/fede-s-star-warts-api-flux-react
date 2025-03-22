@@ -10,7 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				planets: "https://assets.science.nasa.gov/dynamicimage/assets/science/astro/exo-explore/internal_resources/121/Star_Wars_Kepler-22b_Kamino.png?w=1280&h=720&fit=clip&crop=faces%2Cfocalpoint",
 				people: "https://conceptartworld.com/wp-content/uploads/2016/03/Star_Wars_The_Force_Awakens_Concept_Art_ILM_001.jpg",
 				vehicles: "https://img.redbull.com/images/q_auto,f_auto/redbullcom/2015/12/17/1331765975410_5/star-wars-landspeeders-in-the-dakar-rally"
-			}
+			},
+			flagStore: false,
 		},
 
 		actions: {
@@ -125,6 +126,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 			},
+
+			flag: ()=>{
+				setStore({...getStore(), flagStore: !getStore().flagStore })
+			}
 		}
 	};
 };

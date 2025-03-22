@@ -1,13 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Context } from "../store/appContext";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 export const Favorites = () => {
 
     const { store, actions } = useContext(Context);
+    const navigate = useNavigate();
     const [favoritesQty, setFavoritesQty] = useState(store.favorites.length);
+
+    const handlerDavo = (url) => {
+        navigate(url)
+        actions.flag()
+    }
 
     useEffect(() => {
         setFavoritesQty(store.favorites.length)
@@ -23,7 +29,9 @@ export const Favorites = () => {
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     {store && store.favorites?.map((item, index) => {
                         return (
-                            <li key={index}><Link className="dropdown-item" to={item.url}>{item.name}</Link></li>
+                            // <li key={index}><Link className="dropdown-item" to={item.url}>{item.name}</Link></li>
+                            <li key={index}><p className="dropdown-item" onClick={()=>{handlerDavo(item.url)}} to={item.url}>{item.name}</p></li>
+
                         )
                     })}
                 </ul>
